@@ -8,6 +8,7 @@ let React = {
 }
 
 function render(ele, container) {
+    //test
     // 扩展、通用，工厂方法，实例化组件
     let unitInstance = createUnitInstance(ele);
     // 获取对应的html
