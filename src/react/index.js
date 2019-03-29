@@ -1,14 +1,15 @@
 // 用自己写的react实现最简单渲染效果
 import $ from 'jquery'
 import createUnitInstance from '../util/unit'
+import createElement from '../util/element'
 
 let React = {
     nextRootIndex: 0,
-    render
+    render,
+    createElement
 }
 
 function render(ele, container) {
-    //test
     // 扩展、通用，工厂方法，实例化组件
     let unitInstance = createUnitInstance(ele);
     // 获取对应的html
