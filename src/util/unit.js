@@ -25,12 +25,18 @@ class ReactNativeUnit extends Unit {
         let tagEnd = `</${type}>`;
 
         for (const propsKey in props) {
-            if (propsKey === 'children') {
+            if (/^on[A-Z]/.test(propsKey)) {
+                // onClick截取出Click
+                let eventType = propsKey.slice(2).toLowerCase();
+                // 绑定事件
+                $(document).delegate(`[data-reactid="${rootId}"]`, eventType, props[propsKey])
+            
+            } else if (propsKey === 'children') {
                 // 子节点
                 let children = props.children || [];
                 childrenStr = children.map((child, i) => {
                     let childUnit = createUnitInstance(child);
-                    return childUnit.getUnit(`${this.rootId}.${i}`)
+                    return childUnit.getUnit(`${rootId}.${i}`)
                 }).join('');
 
             } else {

@@ -4,6 +4,7 @@ class Component {
     }
     setState(state){
         // 修改状态
+        // console.log(this)
     }
 }
 
