@@ -1,4 +1,0 @@
-// 使用react
-import ReactDom from 'react-dom';
-
-ReactDom.render('123',document.getElementById('root'))
