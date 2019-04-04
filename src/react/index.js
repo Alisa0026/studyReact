@@ -2,11 +2,13 @@
 import $ from 'jquery'
 import createUnitInstance from '../util/unit'
 import createElement from '../util/element'
+import Component from '../util/component'
 
 let React = {
     nextRootIndex: 0,
     render,
-    createElement
+    createElement,
+    Component
 }
 
 function render(ele, container) {
@@ -16,6 +18,8 @@ function render(ele, container) {
     let unit = unitInstance.getUnit(React.nextRootIndex);
     // 放到容器中
     $(container).html(unit);
+    // 触发一个自定义事件 mounted，因为 getUnit中不同的组件都会监听 mounted 事件
+    $(document).trigger('mounted');
 }
 
 
